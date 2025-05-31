@@ -3,7 +3,6 @@
 Este tutorial te guiará a través del proceso de creación de una aplicación que accede a datos basados ​​en grafos a través de un frontend RESTful [basado en hipermedia](https://spring.io/guides/gs/rest-hateoas).
 
 >[!success] Código de GitHub
->
 >Puedes clonar o hacer un fork del código de esta guía desde mi repositorio de [GitHub](https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest)
 >
 >`https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest.git`
@@ -43,6 +42,7 @@ En una Mac con Homebrew instalado, puedes escribir lo siguiente en una ventana d
 `$ brew install neo4j`
 
 Para otras opciones, consulta https://neo4j.com/download/community-edition/
+
 ### Instalación con Docker
 
 Todos los detalles de cómo instalar un contenedor Docker de neo4j está explicado [[Introducción a Neo4j en Docker| aquí]].
@@ -67,7 +67,6 @@ Por defecto, Neo4j tiene el nombre de usuario y la contraseña `neo4j` y `neo4j`
 ```shell
 $ curl -v -u neo4j:neo4j POST localhost:7474/user/neo4j/password -H "Content-type:application/json" -d "{\"password\":\"secret\"}"
 ```
-
 Esto cambia la contraseña de `neo4j` a `secret` (algo que NO se debe hacer en producción). Una vez completado esto, debería estar listo para ejecutar esta guía.
 
 ## Empezando con Spring Initializr
@@ -267,13 +266,13 @@ $ curl http://localhost:8080
 
 ```json
 {
-  "_links" : {
-    "personas" : {
-      "href" : "http://localhost:8080/personas{?page,size,sort*}",
-      "templated" : true
+  "_links": {
+    "personas": {
+      "href": "http://localhost:8080/personas{?page,size,sort*}",
+      "templated": true
     },
-    "profile" : {
-      "href" : "http://localhost:8080/profile"
+    "profile": {
+      "href": "http://localhost:8080/profile"
     }
   }
 }
@@ -291,26 +290,27 @@ $ curl http://localhost:8080/personas
 
 ```json
 {
-  "_embedded" : {
-    "personas" : [ ]
+  "_embedded": {
+    "personas": []
   },
-  "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/personas?page=0&size=20"
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas?page=0&size=20"
     },
-    "profile" : {
-      "href" : "http://localhost:8080/profile/personas"
+    "profile": {
+      "href": "http://localhost:8080/profile/personas"
     },
-    "search" : {
-      "href" : "http://localhost:8080/personas/search"
+    "search": {
+      "href": "http://localhost:8080/personas/search"
     }
   },
-  "page" : {
-    "size" : 20,
-    "totalElements" : 0,
-    "totalPages" : 0,
-    "number" : 0
+  "page": {
+    "size": 20,
+    "totalElements": 0,
+    "totalPages": 0,
+    "number": 0
   }
+}
 ```
 
 Actualmente no hay elementos ni, por lo tanto, páginas, así que es hora de crear una nueva `Persona`. Para ello, ejecuta el siguiente comando:
@@ -319,7 +319,7 @@ Actualmente no hay elementos ni, por lo tanto, páginas, así que es hora de cre
 $ curl -i -X POST -H "Content-Type:application/json" -d '{ "nombre" : "Frodo", "apellido" : "Bolson" }' http://localhost:8080/personas
 ```
 
-```shell
+```json
 HTTP/1.1 201    
 Vary: Origin  
 Vary: Access-Control-Request-Method  
@@ -328,19 +328,18 @@ Location: http://localhost:8080/personas/0
 Content-Type: application/hal+json  
 Transfer-Encoding: chunked  
 Date: Sat, 31 May 2025 07:58:30 GMT  
-'''
-```json
-{  
- "nombre" : "Frodo",  
- "apellido" : "Bolson",  
- "_links" : {  
-   "self" : {  
-     "href" : "http://localhost:8080/personas/0"  
-   },  
-   "persona" : {  
-     "href" : "http://localhost:8080/personas/0"  
-   }  
- }  
+  
+{
+  "nombre": "Frodo",
+  "apellido": "Bolson",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas/0"
+    },
+    "persona": {
+      "href": "http://localhost:8080/personas/0"
+    }
+  }
 }
 ```
 
@@ -362,38 +361,40 @@ $ curl http://localhost:8080/personas
 ```
 
 ```json
-{  
- "_embedded" : {  
-   "personas" : [ {  
-     "nombre" : "Frodo",  
-     "apellido" : "Bolson",  
-     "_links" : {  
-       "self" : {  
-         "href" : "http://localhost:8080/personas/0"  
-       },  
-       "persona" : {  
-         "href" : "http://localhost:8080/personas/0"  
-       }  
-     }  
-   } ]  
- },  
- "_links" : {  
-   "self" : {  
-     "href" : "http://localhost:8080/personas?page=0&size=20"  
-   },  
-   "profile" : {  
-     "href" : "http://localhost:8080/profile/personas"  
-   },  
-   "search" : {  
-     "href" : "http://localhost:8080/personas/search"  
-   }  
- },  
- "page" : {  
-   "size" : 20,  
-   "totalElements" : 1,  
-   "totalPages" : 1,  
-   "number" : 0  
- }  
+{
+  "_embedded": {
+    "personas": [
+      {
+        "nombre": "Frodo",
+        "apellido": "Bolson",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/personas/0"
+          },
+          "persona": {
+            "href": "http://localhost:8080/personas/0"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas?page=0&size=20"
+    },
+    "profile": {
+      "href": "http://localhost:8080/profile/personas"
+    },
+    "search": {
+      "href": "http://localhost:8080/personas/search"
+    }
+  },
+  "page": {
+    "size": 20,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
 }
 ```
 
@@ -442,16 +443,16 @@ $ curl http://localhost:8080/personas/search
 ```
 
 ```json
-{  
- "_links" : {  
-   "findByApellido" : {  
-     "href" : "http://localhost:8080/personas/search/findByApellido{?nombre}",  
-     "templated" : true  
-   },  
-   "self" : {  
-     "href" : "http://localhost:8080/personas/search"  
-   }  
- }  
+{
+  "_links": {
+    "findByApellido": {
+      "href": "http://localhost:8080/personas/search/findByApellido{?nombre}",
+      "templated": true
+    },
+    "self": {
+      "href": "http://localhost:8080/personas/search"
+    }
+  }
 }
 ```
 
@@ -465,25 +466,28 @@ $ curl http://localhost:8080/personas/search/findByApellido?nombre=Bolson
 
 ```json
 {
-  "_embedded" : {
-    "personas" : [ {
-      "nombre" : "Frodo",
-      "apellido" : "Bolson",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/personas/0"
-        },
-        "persona" : {
-          "href" : "http://localhost:8080/personas/0"
+  "_embedded": {
+    "personas": [
+      {
+        "nombre": "Frodo",
+        "apellido": "Bolson",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/personas/0"
+          },
+          "persona": {
+            "href": "http://localhost:8080/personas/0"
+          }
         }
       }
-    } ]
+    ]
   },
-  "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/personas/search/findByApellido?nombre=Bolson"
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas/search/findByApellido?nombre=Bolson"
     }
   }
+}
 ```
 
 Dado que definiste en el código que devolviera una `List<Persona>` , devuelve todos los resultados. Si lo hubieras definido para que devolviera solo `Persona`, seleccionaría uno de los objetos `Persona` para devolver. Dado que esto puede ser impredecible, probablemente no desee hacerlo para consultas que puedan devolver múltiples entradas.
@@ -502,14 +506,14 @@ $ curl http://localhost:8080/personas/0
 
 ```json
 {
-  "nombre" : "Bilbo",
-  "apellido" : "Bolson",
-  "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/personas/0"
+  "nombre": "Bilbo",
+  "apellido": "Bolson",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas/0"
     },
-    "persona" : {
-      "href" : "http://localhost:8080/personas/0"
+    "persona": {
+      "href": "http://localhost:8080/personas/0"
     }
   }
 }
@@ -527,14 +531,14 @@ $ curl http://localhost:8080/personas/0
 
 ```json
 {
-  "nombre" : "Bilbo Junior",
-  "apellido" : "Bolson",
-  "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/personas/0"
+  "nombre": "Bilbo Junior",
+  "apellido": "Bolson",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas/0"
     },
-    "persona" : {
-      "href" : "http://localhost:8080/personas/0"
+    "persona": {
+      "href": "http://localhost:8080/personas/0"
     }
   }
 }
@@ -556,26 +560,27 @@ $ curl http://localhost:8080/personas
 
 ```json
 {
-  "_embedded" : {
-    "personas" : [ ]
+  "_embedded": {
+    "personas": []
   },
-  "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/personas?page=0&size=20"
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas?page=0&size=20"
     },
-    "profile" : {
-      "href" : "http://localhost:8080/profile/personas"
+    "profile": {
+      "href": "http://localhost:8080/profile/personas"
     },
-    "search" : {
-      "href" : "http://localhost:8080/personas/search"
+    "search": {
+      "href": "http://localhost:8080/personas/search"
     }
   },
-  "page" : {
-    "size" : 20,
-    "totalElements" : 0,
-    "totalPages" : 0,
-    "number" : 0
+  "page": {
+    "size": 20,
+    "totalElements": 0,
+    "totalPages": 0,
+    "number": 0
   }
+}
 ```
 
 Una ventaja de esta interfaz basada en hipermedia es que permite descubrir todos los endpoints RESTful usando curl (o cualquier otro cliente REST que prefieras). No es necesario intercambiar un contrato formal ni un documento de interfaz con tus clientes.
