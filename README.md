@@ -2,7 +2,7 @@
 
 Este tutorial te guiará a través del proceso de creación de una aplicación que accede a datos basados ​​en grafos a través de un frontend RESTful [basado en hipermedia](https://spring.io/guides/gs/rest-hateoas).
 
->[!success] Código de GitHub
+>[!TIP] Código de GitHub
 >Puedes clonar o hacer un fork del código de esta guía desde mi repositorio de [GitHub](https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest)
 >
 >`https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest.git`
@@ -85,7 +85,7 @@ Para inicializar el proyecto manualmente:
 
 Descarga el archivo ZIP resultante, que es un archivo comprimido de una aplicación web configurada con tus preferencias.
 
->[!note] Nota
+>[!NOTE] Nota
 Si tu IDE tiene la integración con Spring Initializr, puede completar este proceso desde el IDE.
 
 ## Permisos para acceder a Neo4j
@@ -171,7 +171,7 @@ Este repositorio es una interfaz que permite realizar diversas operaciones relac
 
 En tiempo de ejecución, Spring Data REST crea automáticamente una implementación de esta interfaz. Luego, utiliza la anotación `@RepositoryRestResource` para indicar a *Spring MVC* que cree endpoints RESTful en `/personas`.
 
->[!note] Nota
+>[!NOTE] Nota
 `@RepositoryRestResource` no es necesario para exportar un repositorio. Solo se usa para cambiar los detalles de la exportación, como usar `/gente` en lugar del valor predeterminado de `/personas`.
 
 Aquí también has definido una consulta personalizada para recuperar una lista de objetos `Persona` según el valor de `apellido`. Puedes ver cómo invocar esta consulta más adelante en esta guía.
@@ -351,7 +351,7 @@ Date: Sat, 31 May 2025 07:58:30 GMT
 (mostrado con su salida)
 - `-d '{ "firstName": "Frodo", "lastName": "Bolson" }'` son los datos que se envían.
 
->[!note] Nota
+>[!NOTE] Nota
 Observa cómo la operación `POST` anterior incluye un encabezado `Location`. Este contiene la URI del recurso recién creado. Spring Data REST también cuenta con el método `RepositoryRestConfiguration.setReturnBodyOnCreate(…)`, que puedes usar para configurar el framework y que devuelva inmediatamente la representación del recurso recién creado.
 
 Desde aquí puedes consultar todas las personas ejecutando el siguiente comando:
