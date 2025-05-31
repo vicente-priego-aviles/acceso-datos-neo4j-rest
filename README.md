@@ -2,7 +2,8 @@
 
 Este tutorial te guiará a través del proceso de creación de una aplicación que accede a datos basados ​​en grafos a través de un frontend RESTful [basado en hipermedia](https://spring.io/guides/gs/rest-hateoas).
 
-> [!TIP] Código de GitHub
+> [!TIP] 
+> **Código de GitHub**
 > Puedes clonar o hacer un fork del código de esta guía desde mi repositorio de [GitHub](https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest)
 > 
 > `https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest.git`
@@ -85,7 +86,7 @@ Para inicializar el proyecto manualmente:
 
 Descarga el archivo ZIP resultante, que es un archivo comprimido de una aplicación web configurada con tus preferencias.
 
-> [!NOTE] Nota
+> [!NOTE]
 > Si tu IDE tiene la integración con Spring Initializr, puede completar este proceso desde el IDE.
 
 ## Permisos para acceder a Neo4j
@@ -171,7 +172,7 @@ Este repositorio es una interfaz que permite realizar diversas operaciones relac
 
 En tiempo de ejecución, Spring Data REST crea automáticamente una implementación de esta interfaz. Luego, utiliza la anotación `@RepositoryRestResource` para indicar a *Spring MVC* que cree endpoints RESTful en `/personas`.
 
-> [!NOTE] Nota
+> [!NOTE]
 > `@RepositoryRestResource` no es necesario para exportar un repositorio. Solo se usa para cambiar los detalles de la exportación, como usar `/gente` en lugar del valor predeterminado de `/personas`.
 
 Aquí también has definido una consulta personalizada para recuperar una lista de objetos `Persona` según el valor de `apellido`. Puedes ver cómo invocar esta consulta más adelante en esta guía.
@@ -280,7 +281,7 @@ $ curl http://localhost:8080
 
 Aquí se muestra un primer vistazo de lo que ofrece este servidor. Hay un enlace de `personas` en [http://localhost:8080/personas](http://localhost:8080/personas). Incluye algunas opciones como `?page`, `?size`, y `?sort`.
 
->[!info] Nota
+> [!NOTE] 
 > Spring Data REST utiliza el [formato HAL](https://stateless.co/hal_specification.html) para la salida JSON. Es flexible y ofrece una forma práctica de proporcionar enlaces adyacentes a los datos entregados.
 
 
@@ -400,7 +401,7 @@ $ curl http://localhost:8080/personas
 
 El objeto `Personas` contiene una lista con Frodo. Observa cómo incluye un enlace `self`. 
 
-> [!info] Nota
+> [!NOTE]
 > Spring Data REST también utiliza la biblioteca [Evo Inflector](https://www.atteo.org/2011/12/12/EvoInflector.html) para pluralizar el nombre de la entidad en agrupaciones, aunque solo reconoce palabras en inglés.
 
 Puedes consultar directamente el registro individual ejecutando el siguiente comando:
@@ -544,7 +545,7 @@ $ curl http://localhost:8080/personas/0
 }
 ```
 
-> [!NOTE] Nota
+> [!NOTE]
 > `PUT` reemplaza un registro completo. Los campos que no se proporcionan se reemplazan con valores nulos. 
 > `PATCH` puede usarse para actualizar un subconjunto de elementos.
 
