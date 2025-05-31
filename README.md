@@ -4,6 +4,7 @@ Este tutorial te guiará a través del proceso de creación de una aplicación q
 
 > [!TIP] 
 > **Código de GitHub**
+> 
 > Puedes clonar o hacer un fork del código de esta guía desde mi repositorio de [GitHub](https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest)
 > 
 > `https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest.git`
@@ -320,7 +321,7 @@ Actualmente no hay elementos ni, por lo tanto, páginas, así que es hora de cre
 $ curl -i -X POST -H "Content-Type:application/json" -d '{ "nombre" : "Frodo", "apellido" : "Bolson" }' http://localhost:8080/personas
 ```
 
-```json
+```shell
 HTTP/1.1 201    
 Vary: Origin  
 Vary: Access-Control-Request-Method  
@@ -329,7 +330,8 @@ Location: http://localhost:8080/personas/0
 Content-Type: application/hal+json  
 Transfer-Encoding: chunked  
 Date: Sat, 31 May 2025 07:58:30 GMT  
-  
+```
+```json 
 {
   "nombre": "Frodo",
   "apellido": "Bolson",
