@@ -432,7 +432,7 @@ Puedes usar la siguiente consulta en el [interfaz de usuario de Neo4j](http://lo
 MATCH (n) return n
 ```
 
-![[creacion-servicio-web-neo4j-persona.png]]
+![creacion-servicio-web-neo4j-persona.png](creacion-servicio-web-neo4j-persona.png)
 
 En esta guía, solo hay un objeto de dominio. En sistemas más complejos, donde los objetos de dominio están relacionados entre sí, Spring Data REST genera enlaces adicionales para facilitar la navegación a los registros conectados.
 
