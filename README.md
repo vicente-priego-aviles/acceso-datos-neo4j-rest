@@ -410,17 +410,17 @@ $ curl http://localhost:8080/personas/0
 ```
 
 ```json
-{  
- "nombre" : "Frodo",  
- "apellido" : "Bolson",  
- "_links" : {  
-   "self" : {  
-     "href" : "http://localhost:8080/personas/0"  
-   },  
-   "persona" : {  
-     "href" : "http://localhost:8080/personas/0"  
-   }  
- }  
+{
+  "nombre": "Frodo",
+  "apellido": "Bolson",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/personas/0"
+    },
+    "persona": {
+      "href": "http://localhost:8080/personas/0"
+    }
+  }
 }
 ```
 
