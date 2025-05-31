@@ -2,6 +2,12 @@
 
 Este tutorial te guiará a través del proceso de creación de una aplicación que accede a datos basados ​​en grafos a través de un frontend RESTful [basado en hipermedia](https://spring.io/guides/gs/rest-hateoas).
 
+>[!success] Código de GitHub
+>
+>Puedes clonar o hacer un fork del código de esta guía desde mi repositorio de [GitHub](https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest)
+>
+>`https://github.com/vicente-priego-aviles/acceso-datos-neo4j-rest.git`
+
 ## Qué crearás
 
 Crearás una aplicación Spring que te permitirá crear y recuperar objetos `Person` almacenados en una base de datos NoSQL de Neo4j mediante Spring Data REST. Spring Data REST aprovecha las características de [Spring HATEOAS](https://spring.io/projects/spring-hateoas) y [Spring Data Neo4j](https://spring.io/projects/spring-data-neo4j) y las combina automáticamente.
@@ -23,22 +29,6 @@ Crearás una aplicación Spring que te permitirá crear y recuperar objetos `Per
 	- [VSCode](https://spring.io/guides/gs/guides-with-vscode)
 
 	- [Spring Tool Suite (STS)](https://spring.io/guides/gs/sts)
-
-## Cómo completar esta guía
-
-Como en la mayoría de las guías de introducción de Spring, puedes empezar desde cero y completar cada paso o puedes omitir los pasos básicos de configuración que ya conoces. De cualquier manera, obtendrás un código funcional.
-
-Para empezar desde cero, ve a [scratch].
-
-Para omitir lo básico, haz lo siguiente:
-
-- Descarga y descomprime el repositorio fuente de esta guía o clónalo con Git: git clone https://github.com/spring-guides/{project_id}.git
-
-- `cd` en `{project_id}/initial`
-
-- Ve directamente a [[Acceder a Datos de Neo4j con REST#Permisos para acceder a Neo4j| Permisos para acceder a Neo4j]].
-
-**Al terminar**, puedes comparar los resultados con el código en `{project_id}/complete`.
 
 ## Puesta en marcha de un servidor Neo4j
 
@@ -329,7 +319,7 @@ Actualmente no hay elementos ni, por lo tanto, páginas, así que es hora de cre
 $ curl -i -X POST -H "Content-Type:application/json" -d '{ "nombre" : "Frodo", "apellido" : "Bolson" }' http://localhost:8080/personas
 ```
 
-```json
+```shell
 HTTP/1.1 201    
 Vary: Origin  
 Vary: Access-Control-Request-Method  
@@ -338,7 +328,8 @@ Location: http://localhost:8080/personas/0
 Content-Type: application/hal+json  
 Transfer-Encoding: chunked  
 Date: Sat, 31 May 2025 07:58:30 GMT  
-  
+'''
+```json
 {  
  "nombre" : "Frodo",  
  "apellido" : "Bolson",  
