@@ -102,8 +102,8 @@ spring.neo4j.authentication.password=neo4j
 
 Esto incluye el nombre de usuario predeterminado (`neo4j`) y la contraseña recién configurada (`neo4j`) que estableciste anteriormente.
 
-> [!warning] Cuidado
-> No guardes las credenciales reales en tu repositorio de código fuente. En su lugar, configúralas en el entorno de ejecución mediante la [externalización de propiedades de Spring Boot](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config).
+> [!CAUTION]
+> **Precaución:** No guardes las credenciales reales en tu repositorio de código fuente. En su lugar, configúralas en el entorno de ejecución mediante la [externalización de propiedades de Spring Boot](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config).
 
 ## Crear un objeto de dominio
 
