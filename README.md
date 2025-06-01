@@ -85,7 +85,7 @@ Para inicializar el proyecto manualmente:
 
 4. Haz clic en **Generate**.
 
-Descarga el archivo ZIP resultante, que es un archivo comprimido de una aplicación web configurada con tus preferencias.
+5. Descarga el archivo ZIP resultante, que es un archivo comprimido de una aplicación web configurada con tus preferencias.
 
 > [!NOTE]
 > Si tu IDE tiene la integración con Spring Initializr, puede completar este proceso desde el IDE.
